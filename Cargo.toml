@@ -5,3 +5,6 @@ authors = ["Kai <thiskaiguy@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+
+[build-dependencies]
+cpp_build = "0.5.1"
