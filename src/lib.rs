@@ -5,6 +5,9 @@ extern "C" {
 }
 
 pub trait Application {
+    fn start(self) where Self: Sized + 'static {
+        start_app(self)
+    }
     fn on_activated(&mut self) {}
     fn on_background_activated(&mut self) {}
     fn on_cached_file_updater_activated(&mut self) {}
@@ -85,7 +88,7 @@ struct ApplicationVTable {
     on_window_created: extern "C" fn(*mut c_void),
 }
 
-pub fn start_app<A: Application + Sized + 'static>(app: A) {
+fn start_app<A: Application + Sized + 'static>(app: A) {
     let app = app_ffi(app);
 
     unsafe {
