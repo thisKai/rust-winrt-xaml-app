@@ -48,7 +48,6 @@ struct App : AppT<App>
 
 private:
     rust_ffi::Application* app;
-    ::winrt::Windows::UI::Xaml::Controls::WebView web_view;
 };
 
 extern "C" void start_app_ffi(rust_ffi::Application* app);
